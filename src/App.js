@@ -1,26 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
+import "bootstrap/dist/css/bootstrap.min.css"
+import { BrowserRouter as Router,Switch,Route, Link} from "react-router-dom"
 import './App.css';
+import firebase from "firebase/app"
+import Home from "./pages/home"
+import signin from "./pages/signin"
+import signup from "./pages/signup"
+import Footer from "./layout/footer"
+import UserContext from './context/usercontext';
+import Header from './layout/header';
+import firebaseConfig from "./configuration/fbconfig"
+
+
+
+//firebase
+firebase.initializeApp(firebaseConfig)
 
 function App() {
+
+
+  const [user, setUser] = useState(null)  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+<UserContext.Provider value={{user,setUser}}>
+  <Header/>
+  <Switch>
+    <Route exact path="/" component={Home} />
+    <Route exact path="/signin" component={signin} />
+    <Route exact path="/signup" component={signup} />
+  </Switch>
+  <Footer/>
+
+
+</UserContext.Provider>
+
+    </Router>
+    
   );
 }
 
 export default App;
+
