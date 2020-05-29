@@ -1,5 +1,13 @@
 A GitHub Search App using github API.
 
+![new](https://user-images.githubusercontent.com/57355675/83294624-35d96100-a20b-11ea-89f2-5f32598cb0da.png)
+
+
+
+
+![me2](https://user-images.githubusercontent.com/57355675/83294667-438ee680-a20b-11ea-85fd-48cd366fe8e1.png)
+
+
 ### PREREQUISITES
  Firebase Authentication Configuration 
 
